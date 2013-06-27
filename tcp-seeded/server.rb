@@ -34,6 +34,7 @@ class TestServer
       chunk += 1
       expect = @random.bytes(8192)
       actual = @socket.read(8192)
+      raise "Short read" if actual.bytesize < 8192
 
       check_data(chunk, expect, actual)
       show_summary
