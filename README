@@ -1,2 +1,2 @@
-Just a simple pair of scripts to test for a bad network connection.
+Just a few scripts to test for a bad network connection.
 Successfully identified a faulty NIC (or switch port) on one of our servers.
