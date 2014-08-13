@@ -102,7 +102,7 @@ class TestClient
         ready, _ = IO.select([@socket], [], [], 1.0)
         break if ready
 
-        puts "Timeout: no response for #{seq} (#{i}/#{RETRIES})."
+        puts "Timeout: no response for #{seq}, #{size} bytes (#{i}/#{RETRIES})."
         abort "Aborting due to timeout." if i == RETRIES
       end
 

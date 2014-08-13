@@ -93,13 +93,13 @@ class TestServer
     @next_summary = Time.at(0)
     seen = -1
     loop do
-      _, seq, actual = wait_for(/\Adata (\d+) (.*)\z/nm, maxlen + 10)
+      msg, seq, actual = wait_for(/\Adata (\d+) (.*)\z/nm, maxlen + 10)
       seq = seq.to_i
       send("ack #{seq}")
       @total += 1
 
       if seq <= seen
-        puts "Duplicate packet: #{seq}"
+        puts "Duplicate packet: #{seq}, #{msg.bytesize} bytes."
         @dups += 1
         next
       end
